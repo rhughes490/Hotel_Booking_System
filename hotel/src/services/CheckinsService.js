@@ -2,7 +2,7 @@ const baseURL = 'http://localhost:3000/api/checkins/'
 
 export default {
 
-  getCheckings() {
+  getCheckins() {
     return fetch(baseURL)
     .then(res => res.json())
   }

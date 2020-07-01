@@ -1,19 +1,39 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<div id="app">
+    <checkins-form/>
+    <checkins-grid :checkins="checkins" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import CheckinsForm from '@/components/CheckinsForm.vue'
+import CheckinsGrid from '@/components/CheckinsGrid.vue'
+import {eventBus} from '@/main'
+import CheckinsService from '@/services/CheckinsService.js'
+
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  nam: 'app',
+  components : {
+    'checkins-form': CheckinsForm,
+    'checkins-grid': CheckinsGrid
+  },
+  data() {
+    return {
+      checkins: []
+    }
+  },
+
+  methods: {
+    fetchCheckins() {
+      CheckinsService.getCheckins()
+      .then(checkins => this.checkins = checkins)
+    }
   }
 }
+
+
+
 </script>
 
 <style>
