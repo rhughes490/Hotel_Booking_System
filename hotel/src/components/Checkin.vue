@@ -10,6 +10,13 @@
 
 <script>
 
+import { eventBus } from '../main';
+
+export default {
+  name: 
+
+  props: ['checkin']
+}
 
 
 </script>
