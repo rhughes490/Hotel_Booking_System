@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="sighting">
-    <p>{{ checkin.name }} on {{ checkin.date|formatDate }}</p>
+    <p>{{ checkin.name }} on {{ checkin.date |formatDate}}</p>
     <p>email address: {{ checkin.email }}</p>
     <p>Checkedin: {{ checkin.isCheckedIn }}</p>
 
@@ -13,12 +13,17 @@
 import { eventBus } from '../main';
 
 export default {
-  name: 
+  name: "checkin",
 
-  props: ['checkin']
+  props: ['checkin'],
+
+	filters: {
+    formatDate(value) {
+      return new Date(value).toLocaleString().substring(0, 10);
+    }
+  }
+
 }
-
-
 </script>
 
 <style lang="css" scoped>

@@ -2,6 +2,7 @@
 <div id="app">
     <checkins-form/>
     <checkins-grid :checkins="checkins" />
+  </div>
 </template>
 
 <script>
@@ -22,6 +23,10 @@ export default {
     return {
       checkins: []
     }
+  },
+
+  mounted() {
+    this.fetchCheckins();
   },
 
   methods: {
