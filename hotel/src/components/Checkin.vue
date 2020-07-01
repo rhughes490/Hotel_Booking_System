@@ -2,9 +2,9 @@
   <div class="sighting">
     <p>{{ checkin.name }} on {{ checkin.date |formatDate}}</p>
     <p>email address: {{ checkin.email }}</p>
-    <p>Checkedin: {{ checkin.isCheckedIn }}</p>
+    <p>Checked In: {{ checkin.isCheckedIn }}</p>
 
-    <button v-on:click="handleDelete(checkin._id)">Delete Check-in</button>
+    <button v-on:click="handleDelete(checkin._id)">Delete</button>
   </div>
 </template>
 
@@ -22,7 +22,6 @@ export default {
       return new Date(value).toLocaleString().substring(0, 10);
     }
   }
-
 }
 </script>
 

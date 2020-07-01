@@ -27,6 +27,11 @@ export default {
 
   mounted() {
     this.fetchCheckins();
+
+    eventBus.$on('submit-checkin', payload => {
+      CheckinsService.postCheckins(payload)
+      .then(checkins => this.checkins.push(checkins))
+    })
   },
 
   methods: {
